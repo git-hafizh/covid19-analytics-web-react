@@ -1,0 +1,61 @@
+{
+  "name": "covid19-web",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "animated-number-react": "^0.1.0",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "chart.js": "^2.9.3",
+    "css-loader": "^3.5.3",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.5.1",
+    "moment": "^2.27.0",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-animate-on-scroll": "^2.1.5",
+    "react-bootstrap": "^1.0.1",
+    "react-chartjs-2": "^2.9.0",
+    "react-countup": "^4.3.3",
+    "react-dom": "^16.13.1",
+    "react-moment": "^0.9.7",
+    "react-responsive-carousel": "^3.2.9",
+    "react-reveal": "^1.2.2",
+    "react-scripts": "3.4.1",
+    "react-slick": "^0.27.0",
+    "react-styled-carousel-am": "^1.0.1",
+    "react-touch-carousel": "^0.9.4",
+    "reactstrap": "^8.4.1",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.1.1",
+    "swiper": "^6.0.4",
+    "typescript": "^3.9.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
