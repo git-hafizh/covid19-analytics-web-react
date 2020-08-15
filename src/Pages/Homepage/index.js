@@ -14,17 +14,17 @@ export default function Homepage() {
               <span style={{ color: "#c62026" }}>#dirumahaja</span>
             </h1>
             <p className="lead">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-              consectetur, magna at feugiat aliquet, justo nisi laoreet dui, sed
-              venenatis purus neque non tortor. Fusce ultricies eleifend lorem,
-              vitae vestibulum tortor scelerisque non. Morbi bibendum eros ac
-              odio fermentum, at finibus turpis imperdiet.
+              Virus Corona atau severe acute respiratory syndrome coronavirus 2
+              (SARS-CoV-2) adalah virus yang menyerang sistem pernapasan.
+              Penyakit karena infeksi virus ini disebut COVID-19. Virus Corona
+              bisa menyebabkan gangguan ringan pada sistem pernapasan, infeksi
+              paru-paru yang berat, hingga kematian.
             </p>
             <hr className="my-2" />
             <p>
-            Interdum arcu iaculis. Curabitur tempor
-            tortor nec dolor commodo semper. Nulla blandit accumsan volutpat.
-            Orci varius natoque penatibus et magnis dis parturient montes.
+              Severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) yang
+              lebih dikenal dengan nama virus Corona adalah jenis baru dari
+              coronavirus yang menular ke manusia.
             </p>
             <p className="lead">
               <Button color="primary" href="#myBg">

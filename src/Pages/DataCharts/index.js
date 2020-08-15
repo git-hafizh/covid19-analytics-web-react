@@ -1,16 +1,14 @@
 import React from "react";
 import axios from "axios";
-import { Bar, Line, Doughnut, Bubble } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import moment from 'moment';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import '../../Pages/style.css';
 
 export default function DataCharts() {
-  const [isCases, setIsCases] = React.useState({});
   const [onTab, setOnTab] = React.useState("1");
   const [confirmed, setConfirmed] = React.useState({});
-  const [death, setDeath] = React.useState({});
-  const [recovered, setRecovered] = React.useState({});
+  const [setRecovered] = React.useState({});
 
   const getRecoveredAPI = () => {
     axios.get("https://api.covid19api.com/dayone/country/indonesia/status/recovered")
@@ -79,6 +77,7 @@ export default function DataCharts() {
         justifyContent: "center",
         marginRight: "auto",
         marginLeft: "auto",
+        marginTop: "1rem"
       }}
     >
       <Nav tabs>
@@ -86,95 +85,13 @@ export default function DataCharts() {
           <NavLink 
           active={onTab === "1"}
           onClick={() => setOnTab("1")}>
-            Bar
-          </NavLink>
-        </NavItem>
-        <NavItem style={{cursor: "pointer"}} >
-          <NavLink active={onTab === "2"}
-          onClick={() => setOnTab("2")}>
-            Line
-          </NavLink>
-        </NavItem>
-        <NavItem style={{cursor: "pointer"}} >
-          <NavLink active={onTab === "3"}
-          onClick={() => setOnTab("3")}>
-            Bubble
+            Grafik
           </NavLink>
         </NavItem>
       </Nav>
       <TabContent activeTab={onTab}>
         <TabPane tabId="1">
-          <Line data={confirmed}
-            // options={{
-            //     scales: {
-            //         xAxes: [{
-            //             unit: 'day',
-            //             type: 'time',
-            //             time: {
-            //                 displayFormats: {
-            //                     second: 'h:MM:SS',
-            //                     minute: 'h:MM',
-            //                     hour: 'hA',
-            //                     day: 'MMM D YYYY',
-            //                     month: 'YYYY MMM',
-            //                     year: 'YYYY'
-            //                 },                            
-            //             },
-            //             display: true,                      
-            //         }]     
-            //     }
-            // }}
-          />
-        </TabPane>
-      </TabContent>
-      <TabContent activeTab={onTab} >
-        <TabPane tabId="2">
-          <Bar data={recovered} 
-            // options={{
-            //     scales: {
-            //         xAxes: [{
-            //             unit: 'day',
-            //             type: 'time',
-            //             time: {
-            //                 displayFormats: {
-            //                     second: 'h:MM:SS',
-            //                     minute: 'h:MM',
-            //                     hour: 'hA',
-            //                     day: 'MMM D YYYY',
-            //                     month: 'YYYY MMM',
-            //                     year: 'YYYY'
-            //                 },                            
-            //             },
-            //             display: true,                      
-            //         }]     
-            //     }
-            // }}
-          />
-        </TabPane>
-      </TabContent>
-      <TabContent activeTab={onTab} >
-        <TabPane tabId="3">
-          <Line data={death} 
-            // options={{
-            //     scales: {
-            //         xAxes: [{
-            //             unit: 'day',
-            //             type: 'time',
-            //             time: {
-            //                 displayFormats: {
-            //                     second: 'h:MM:SS',
-            //                     minute: 'h:MM',
-            //                     hour: 'hA',
-            //                     day: 'MMM D YYYY',
-            //                     month: 'YYYY MMM',
-            //                     year: 'YYYY'
-            //                 },                            
-            //             },
-            //             display: true,                      
-            //         }]     
-            //     }
-            // }}
-          />
+          <Line data={confirmed}/>
         </TabPane>
       </TabContent>
     </div>
