@@ -1,5 +1,7 @@
 ### `COVID-19 Tracker Web`
 
+[Live Demo](http://git-hafizh.github.io/covid19-tracker-web-react/).
+
 ![git](https://user-images.githubusercontent.com/63697314/90311022-1a841500-df21-11ea-97bb-50e6dee49bf1.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
