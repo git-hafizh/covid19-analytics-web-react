@@ -1,5 +1,5 @@
 import React from "react";
-import { CardTitle, CardImg, CardBody, Card } from "reactstrap";
+import { CardTitle, CardImg, Card } from "reactstrap";
 import '../../Pages/style.css';
 import axios from 'axios';
 import Slider from "react-slick";
@@ -12,7 +12,7 @@ export default function Konten() {
 
   React.useEffect(() => {
     getNewsAPI();
-  })
+  },[])
 
   const thisApiKey = "8dd49b1983464a37aa7fac7c1111f95a";
 
@@ -52,8 +52,8 @@ export default function Konten() {
       }}>News</span>
     </div>
     <Slider {...settings}>
-      {news.map(item => (
-        <div>
+      {news.map((item, index) => (
+        <div key={index}>
           <Card>
             <CardImg style={{width: "100", height:"300", textAlign: "center"}} src={item.urlToImage}/>
             <CardTitle style={{fontSize: 14, padding: "0px 2px"}}>

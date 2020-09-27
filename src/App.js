@@ -12,7 +12,7 @@ function App() {
       <Navbars/>
       <Homepage/>
       <Kasus/>
-      <News/>
+      {/* <News/> */}
       <DataCharts/>
     </div>
   );

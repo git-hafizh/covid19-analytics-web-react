@@ -34,7 +34,7 @@ export default function Homepage() {
           </Jumbotron>
         </Col>
         <Col sm={6}>
-          <img style={{ marginTop: 75, width: "85%" }} src={Gambar} />
+          <img alt="" style={{ marginTop: 75, width: "85%" }} src={Gambar} />
         </Col>
       </Row>
     </div>

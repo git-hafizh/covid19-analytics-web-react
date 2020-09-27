@@ -3,9 +3,6 @@ import {
   NavbarBrand,
   NavbarToggler,
   Collapse,
-  Nav,
-  NavItem,
-  NavLink,
   Navbar,
 } from "reactstrap";
 
