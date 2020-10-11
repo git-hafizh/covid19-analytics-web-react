@@ -3,7 +3,7 @@ import "moment/locale/id";
 import { Card, CardBody, CardTitle, CardText, Row, Col } from "reactstrap";
 import axios from "axios";
 import Fade from "react-reveal/Fade";
-import "../../Pages/style.css";
+import "./style.css";
 import NumberFormat from "react-number-format";
 
 export default function Menu() {
@@ -35,9 +35,9 @@ export default function Menu() {
   };
 
   return (
-    <div id="myBg" style={{ position: "relative", top: -40 }}>
+    <div id="myBg" style={{ position: "relative", marginTop: "4rem"}}>
       <div>
-        <span
+        <span className="world-cases"
           style={{
             textAlign: "center",
             fontSize: 64,
@@ -119,6 +119,7 @@ export default function Menu() {
           </Col>
         </Row>
       </Fade>
+      <div className="footer"></div>
     </div>
   );
 }

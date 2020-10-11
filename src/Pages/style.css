@@ -18,11 +18,6 @@ body {
    margin: 0px 125px;
 }
 
-/* #myBg {
-    background: rgb(248,250,252);
-    background: linear-gradient(0deg, rgba(248,250,252,1) 50%, rgba(255,255,255,1) 50%);
-} */
-
 #menu1{
     border-top: 8px solid #4D6CFF;
     border-radius: 10px;
@@ -42,3 +37,53 @@ body {
     border-top: 8px solid #FECC65;
     border-radius: 10px;
 }
+
+.header-bg-toggle{
+    width: 0%;
+    position: absolute;
+    visibility: hidden;
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+
+    h1.display-5{
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    
+    p.lead{
+        width: 0%;
+        position: absolute;
+        visibility: hidden;
+    }
+    
+    #homepage {
+        margin: 0px 10px;
+        font-size: 12px;
+    }
+    
+    #navbars {
+       margin: 0px 25px;
+    }
+
+    .header-bg{
+        visibility: hidden;
+    }
+
+    .header-bg-toggle{
+        visibility: visible;
+        margin-top: -40px;
+        width: 100%;
+        display: block; 
+        text-align: center;
+        position: relative;
+    }
+
+    .row .header-bg img {
+        margin-top: 0;
+        width: 0%;
+        position: absolute;
+    }
+  }

@@ -6,13 +6,16 @@ import "../../Pages/style.css";
 export default function Homepage() {
   return (
     <div id="homepage">
-      <Row sm={12}>
+      <Row>
         <Col sm={6}>
           <Jumbotron style={{ background: "#F7FAFC" }}>
             <h1 className="display-5" style={{ color: "#122544" }}>
               Tetap Produktif Berkarya dan Belajar{" "}
               <span style={{ color: "#c62026" }}>#dirumahaja</span>
             </h1>
+            <div className="header-bg-toggle">
+              <img alt="" style={{ marginTop: 75, width: "85%" }} src={Gambar} />
+            </div>
             <p className="lead">
               Virus Corona atau severe acute respiratory syndrome coronavirus 2
               (SARS-CoV-2) adalah virus yang menyerang sistem pernapasan.
@@ -33,7 +36,7 @@ export default function Homepage() {
             </p>
           </Jumbotron>
         </Col>
-        <Col sm={6}>
+        <Col className="header-bg" sm={6}>
           <img alt="" style={{ marginTop: 75, width: "85%" }} src={Gambar} />
         </Col>
       </Row>

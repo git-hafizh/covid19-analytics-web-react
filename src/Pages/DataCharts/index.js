@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Line, Bar } from "react-chartjs-2";
+import "./style.css";
 import moment from "moment";
 import {
   TabContent,
@@ -55,8 +56,9 @@ export default function DataCharts() {
     });
 
     axios
-      .get("https://covid19.mathdro.id/api/confirmed")
+      .get("https://covid19.mathdro.id/api/countries/USA/confirmed")
       .then((result) => {
+        console.log(result);
         let data = result.data;
         let confirmed = [];
         let recovered = [];
@@ -67,10 +69,15 @@ export default function DataCharts() {
           death.push(item.deaths);
         });
 
+        //reverse the array
+        let revConfirmed = confirmed.reverse();
+        let revRecovered = recovered.reverse();
+        let revDeath = death.reverse();
+
         setRecord({
-          confirmed: confirmed,
-          recovered: recovered,
-          death: death,
+          confirmed: revConfirmed,
+          recovered: revRecovered,
+          death: revDeath,
         });
       })
       .catch((err) => {
@@ -102,10 +109,44 @@ export default function DataCharts() {
 
   console.log(record.confirmed);
 
+  function LineChart() {
+    const data = {
+      labels: "",
+      datasets: [
+        {
+          labels: "Confirmed",
+          data: record.confirmed,
+          backgroundColor: "rgba(0, 184, 148,0.2)",
+          borderColor: "rgba(0, 184, 148,0.2)",
+          pointBorderColor: "rgba(0, 184, 148,0.2)",
+          pointBackgroundColor: "rgba(0, 184, 148,0.2)",
+        },
+        {
+          labels: "Recovered",
+          data: record.recovered,
+          backgroundColor: "rgba(9, 132, 227,0.2)",
+          borderColor: "rgba(9, 132, 227,0.2)",
+          pointBorderColor: "rgba(9, 132, 227,0.2)",
+          pointBackgroundColor: "rgba(9, 132, 227,0.2)",
+        },
+        {
+          labels: "Death",
+          data: record.death,
+          backgroundColor: "rgba(214, 48, 49,0.2)",
+          borderColor: "rgba(214, 48, 49,0.2)",
+          pointBorderColor: "rgba(214, 48, 49,0.2)",
+          pointBackgroundColor: "rgba(214, 48, 49,0.2)",
+        },
+      ],
+    };
+
+    return <Line data={data} />;
+  }
+
   return (
     <>
-    <div style={{position: "relative", top: -40}}>
-    <span
+      <div className="data" style={{ position: "relative", top: "-4rem" }}>
+        <span
           style={{
             textAlign: "center",
             fontSize: 64,
@@ -122,81 +163,84 @@ export default function DataCharts() {
         >
           Country Cases
         </span>
-      <div
-        style={{ width: "30%", justifyContent: "center", margin: "2rem auto" }}
-      >
-        
-        <SearchCountry
-          country={country}
-          selected={selected}
-          handleChange={(e) => handleChange(e)}
-        />
-      </div>
-      <div style={{marginBottom: "5rem"}}>
-        <Row sm={5} style={{ justifyContent: "center" }}>
-          <Col>
-            <Card id="menu1">
-              <CardBody>
-                <CardTitle style={{ fontWeight: 600 }}>
-                  Kasus Terkonfirmasi
-                </CardTitle>
+        <div
+          style={{
+            width: "30%",
+            justifyContent: "center",
+            margin: "2rem auto",
+          }}
+        >
+          <SearchCountry
+            country={country}
+            selected={selected}
+            handleChange={(e) => handleChange(e)}
+          />
+        </div>
+        <div style={{ marginBottom: "5rem" }}>
+          <Row className="cases" sm={5} style={{ justifyContent: "center" }}>
+            <Col>
+              <Card id="menu1">
+                <CardBody>
+                  <CardTitle style={{ fontWeight: 600 }}>
+                    Kasus Terkonfirmasi
+                  </CardTitle>
 
-                <CardText
-                  style={{ color: "#4D6CFF", fontSize: 18, fontWeight: 600 }}
-                >
-                  <NumberFormat
-                    value={cases.confirmed}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                  />
-                  <span style={{ fontWeight: "normal" }}> Orang</span>
-                </CardText>
-              </CardBody>
-            </Card>
-          </Col>
+                  <CardText
+                    style={{ color: "#4D6CFF", fontSize: 18, fontWeight: 600 }}
+                  >
+                    <NumberFormat
+                      value={cases.confirmed}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                    />
+                    <span style={{ fontWeight: "normal" }}> Orang</span>
+                  </CardText>
+                </CardBody>
+              </Card>
+            </Col>
 
-          <Col>
-            <Card id="menu2">
-              <CardBody>
-                <CardTitle style={{ fontWeight: 600 }}>
-                  Orang yang Sembuh
-                </CardTitle>
-                <CardText
-                  style={{ color: "#67D3B3", fontSize: 18, fontWeight: 600 }}
-                >
-                  <NumberFormat
-                    value={cases.recovered}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                  />
-                  <span style={{ fontWeight: "normal" }}> Orang</span>
-                </CardText>
-              </CardBody>
-            </Card>
-          </Col>
+            <Col>
+              <Card id="menu2">
+                <CardBody>
+                  <CardTitle style={{ fontWeight: 600 }}>
+                    Orang yang Sembuh
+                  </CardTitle>
+                  <CardText
+                    style={{ color: "#67D3B3", fontSize: 18, fontWeight: 600 }}
+                  >
+                    <NumberFormat
+                      value={cases.recovered}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                    />
+                    <span style={{ fontWeight: "normal" }}> Orang</span>
+                  </CardText>
+                </CardBody>
+              </Card>
+            </Col>
 
-          <Col>
-            <Card id="menu3">
-              <CardBody>
-                <CardTitle style={{ fontWeight: 600 }}>
-                  Orang yang Meninggal
-                </CardTitle>
-                <CardText
-                  style={{ color: "#EF7943", fontSize: 18, fontWeight: 600 }}
-                >
-                  <NumberFormat
-                    value={cases.death}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                  />
-                  <span style={{ fontWeight: "normal" }}> Orang</span>
-                </CardText>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-      </div>
-      {/* <div
+            <Col>
+              <Card id="menu3">
+                <CardBody>
+                  <CardTitle style={{ fontWeight: 600 }}>
+                    Orang yang Meninggal
+                  </CardTitle>
+                  <CardText
+                    style={{ color: "#EF7943", fontSize: 18, fontWeight: 600 }}
+                  >
+                    <NumberFormat
+                      value={cases.death}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                    />
+                    <span style={{ fontWeight: "normal" }}> Orang</span>
+                  </CardText>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+        </div>
+        {/* <div
         style={{ width: "65%", justifyContent: "center", margin: "2rem auto" }}
       >
         <Nav tabs>
@@ -208,11 +252,11 @@ export default function DataCharts() {
         </Nav>
         <TabContent activeTab={onTab}>
           <TabPane tabId="1">
-            <Bar data={record.confirmed} />
+            <LineChart/>
           </TabPane>
         </TabContent>
       </div> */}
-    </div>
+      </div>
     </>
   );
 }

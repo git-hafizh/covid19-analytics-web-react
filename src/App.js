@@ -11,9 +11,9 @@ function App() {
     <div style={{background: "#F7FAFC"}}>
       <Navbars/>
       <Homepage/>
-      <Kasus/>
-      {/* <News/> */}
       <DataCharts/>
+      <News/>
+      <Kasus/>
     </div>
   );
 }

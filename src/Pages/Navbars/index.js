@@ -16,17 +16,17 @@ export default function Navbars(){
     <div id="navbars">
       <Navbar style={{background: "#F7FAFC"}} light expand="md">
         <NavbarBrand href="/">COVID-19 Tracker Web</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
+        {/* <NavbarToggler onClick={toggle} />
           <Collapse navbar isOpen={open}>
-              {/* <Nav className="ml-auto" navbar>
+              <Nav className="ml-auto" navbar>
                   <NavItem>
                     <NavLink href="/">Tentang</NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink href="/">Gejala</NavLink>
                   </NavItem>
-              </Nav> */}
-          </Collapse>
+              </Nav>
+          </Collapse> */}
       </Navbar>
     </div>
   );

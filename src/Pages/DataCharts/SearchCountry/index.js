@@ -3,7 +3,7 @@ import { Form, Input } from "reactstrap";
 
 const SearchCountry = (props) => {
 
-    const [selected, setSelected] = React.useState("");
+    const [selected] = React.useState("");
 
     function handleSubmit(e){
         props.pickCountry(selected)
@@ -14,6 +14,7 @@ const SearchCountry = (props) => {
         <Form onSubmit={handleSubmit}>
 
       <Input
+        style={{cursor: "pointer"}}
         type="select"
         name="selected"
         onChange={(e) => props.handleChange(e.target.value)}
