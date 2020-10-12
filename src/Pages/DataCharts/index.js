@@ -58,7 +58,6 @@ export default function DataCharts() {
     axios
       .get("https://covid19.mathdro.id/api/countries/USA/confirmed")
       .then((result) => {
-        console.log(result);
         let data = result.data;
         let confirmed = [];
         let recovered = [];
@@ -106,8 +105,6 @@ export default function DataCharts() {
     setSelected(value);
     pickCountry(selected);
   }
-
-  console.log(record.confirmed);
 
   function LineChart() {
     const data = {
