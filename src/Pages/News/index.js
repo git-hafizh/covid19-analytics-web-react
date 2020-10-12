@@ -17,7 +17,15 @@ export default function Konten() {
   const thisApiKey = "8dd49b1983464a37aa7fac7c1111f95a";
 
   const getNewsAPI = () => {
-    axios.get(`https://newsapi.org/v2/everything?q=covid&apiKey=${thisApiKey}`)
+    axios.get(`//newsapi.org/v2/everything?q=covid&apiKey=${thisApiKey}`,  {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Access-Control-Allow-Credentials": "true"
+      }
+    })
     .then((res) => {
       setNews(res.data.articles)
     })
