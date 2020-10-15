@@ -66,21 +66,7 @@ export default function DataCharts() {
   return (
     <>
       <div className="data" style={{ position: "relative", top: "-4rem" }}>
-        <span
-          style={{
-            textAlign: "center",
-            fontSize: 64,
-            textTransform: "uppercase",
-            fontWeight: 500,
-            color: "#95a5a6",
-            position: "absolute",
-            left: 0,
-            right: 0,
-            opacity: "30%",
-            fontFamily: "rubik",
-            top: 20,
-          }}
-        >
+        <span className="country">
           Country Cases
         </span>
         <div

@@ -3,6 +3,7 @@ import { CardTitle, CardImg, Card } from "reactstrap";
 import '../../Pages/style.css';
 import axios from 'axios';
 import Slider from "react-slick";
+import "./style.css";
 import './css/slick.min.css';
 import './css/slick.theme.css';
 
@@ -61,19 +62,7 @@ export default function Konten() {
   return (
     <div style={{position: "relative", marginTop: "-2rem"}}>
     <div>
-      <span style={{
-        textAlign: "center", 
-        fontSize: 64, 
-        textTransform: "uppercase", 
-        fontWeight: 500,
-        color: "#95a5a6",
-        position: "absolute",
-        left: 0,
-        right: 0,
-        opacity: "30%",
-        fontFamily: "rubik",
-        top: -50
-      }}>News</span>
+      <span className="h-news">News</span>
     </div>
     <Slider {...settings} style={{marginBottom: "1rem"}}>
       {news.map((item, index) => (

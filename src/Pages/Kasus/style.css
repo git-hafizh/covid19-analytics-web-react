@@ -1,15 +1,61 @@
+span.world-cases{
+  text-align: center;
+font-size: 64px;
+text-transform: uppercase;
+font-weight: 500;
+color: rgb(149, 165, 166);
+position: absolute;
+left: 0px;
+right: 0px;
+opacity: 0.3;
+font-family: rubik;
+top: -50px;
+}
+
+span.ina-cases {
+  text-align: center;
+  font-size: 64px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: rgb(149, 165, 166);
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  opacity: 0.3;
+  font-family: rubik;
+}
+
+canvas{
+  height: 400px;
+  padding: 0.5rem 6rem;
+}
+
+.footer{
+  height: 1rem;
+}
+
 @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
+  /* For mobile phones: */
 
-    .ina-cases{
-      font-size: 24px;
-    }
-
-    .row .col{
-      margin: 1rem auto;
-      display: block;
-      padding: 0 2rem;
-      text-align: center;
-    }
-
+  canvas{
+    height: 260px;
+    padding: 0.5rem;
   }
+
+  span.ina-cases {
+    font-size: 36px;
+    margin-top: 1.5rem;
+  }
+
+  span.world-cases {
+    font-size: 36px;
+  }
+
+  .row .col {
+    margin: 1rem auto;
+    display: block;
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+}

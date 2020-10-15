@@ -41,7 +41,6 @@ export default function Menu() {
     getDocsAPI();
     IDCase();
   }, []);
-  
 
   const IDCase = () => {
     axios
@@ -91,8 +90,6 @@ export default function Menu() {
       });
   };
 
-  console.log(record);
-
   function LineChart() {
     const data = {
       labels: record.date,
@@ -124,8 +121,12 @@ export default function Menu() {
       ],
     };
 
+    const options = {
+      maintainAspectRatio: false	// Don't maintain w/h ratio
+    }
 
-    return <Line data={data} />;
+
+    return <Line data={data} options={options} />;
   }
 
   const CASEAPI = "https://covid19.mathdro.id/api";
@@ -145,23 +146,8 @@ export default function Menu() {
 
   return (
     <div id="myBg" style={{ position: "relative", marginTop: "4rem" }}>
-      <div>
-        <span
-          className="world-cases"
-          style={{
-            textAlign: "center",
-            fontSize: 64,
-            textTransform: "uppercase",
-            fontWeight: 500,
-            color: "#95a5a6",
-            position: "absolute",
-            left: 0,
-            right: 0,
-            opacity: "30%",
-            fontFamily: "rubik",
-            top: -50,
-          }}
-        >
+      <div className="world">
+        <span className="world-cases">
           World Cases
         </span>
       </div>
@@ -223,39 +209,25 @@ export default function Menu() {
           </Col>
         </Row>
       </Fade>
-      <div className="chart-cases"
+      <div>
+        <span className="ina-cases">
+          Indonesia Cases
+        </span>
+      </div>
+      <div
+        className="chart-cases"
         style={{
-          width: "65%",
           justifyContent: "center",
           margin: "6rem auto 0 auto",
         }}
       >
-      <div>
-        <span
-          className="ina-cases"
-          style={{
-            textAlign: "center",
-            fontSize: 64,
-            textTransform: "uppercase",
-            fontWeight: 500,
-            color: "#95a5a6",
-            position: "absolute",
-            left: 0,
-            right: 0,
-            opacity: "30%",
-            fontFamily: "rubik",
-            marginTop: "-5rem"
-          }}
-        >
-          Indonesia Cases
-        </span>
-      </div>
         <TabContent>
           <TabPane>
             <LineChart />
           </TabPane>
         </TabContent>
       </div>
+      <div className="footer"></div>
     </div>
   );
 }

@@ -38,6 +38,7 @@
     "react-styled-carousel-am": "^1.0.1",
     "react-touch-carousel": "^0.9.4",
     "reactstrap": "^8.4.1",
+    "recharts": "^1.8.5",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.1.1",
     "swiper": "^6.0.4",

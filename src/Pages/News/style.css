@@ -1,0 +1,21 @@
+span.h-news {
+    text-align: center;
+    font-size: 64px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgb(149, 165, 166);
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    opacity: 0.3;
+    font-family: rubik;
+    top: -50px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+
+    span.h-news {
+        font-size: 36px;
+    }
+}
