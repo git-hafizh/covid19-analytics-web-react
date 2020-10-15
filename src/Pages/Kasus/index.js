@@ -1,10 +1,23 @@
 import React from "react";
 import "moment/locale/id";
-import { Card, CardBody, CardTitle, CardText, Row, Col } from "reactstrap";
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  CardText,
+  Row,
+  Col,
+  NavItem,
+  Nav,
+  NavLink,
+  TabPane,
+  TabContent,
+} from "reactstrap";
 import axios from "axios";
 import Fade from "react-reveal/Fade";
 import "./style.css";
 import NumberFormat from "react-number-format";
+import { Line } from "react-chartjs-2";
 
 export default function Menu() {
   const [docs, setDocs] = React.useState([
@@ -15,9 +28,105 @@ export default function Menu() {
     },
   ]);
 
+  const [record, setRecord] = React.useState([
+    {
+      confirmed: 0,
+      recovered: 0,
+      death: 0,
+      date: 0,
+    },
+  ]);
+
   React.useEffect(() => {
     getDocsAPI();
+    IDCase();
   }, []);
+  
+
+  const IDCase = () => {
+    axios
+      .get("https://indonesia-covid-19.mathdro.id/api/harian")
+      .then((result) => {
+        let data = result.data.data;
+        let confirmed = [];
+        let recovered = [];
+        let death = [];
+        let date = [];
+        data.forEach((item) => {
+          confirmed.push(item.jumlahKasusBaruperHari);
+          recovered.push(item.jumlahKasusSembuhperHari);
+          death.push(item.jumlahKasusMeninggalperHari);
+
+          //date convert
+          const elDate = new Date(item.tanggal).toLocaleDateString("ID");
+          const stringToDate = function (dateString) {
+            const [dd, mm, yyyy] = dateString.split("/");
+            return new Date(`${yyyy}-${mm}-${dd}`);
+          };
+          const convertDate = stringToDate(elDate).toString().split(" ");
+          let dateArr = convertDate,
+            removeDateFromIndex = [0, 4, 5, 6, 7, 8];
+
+          for (var i = removeDateFromIndex.length - 1; i >= 0; i--)
+            dateArr.splice(removeDateFromIndex[i], 1);
+
+          let arr = dateArr[1];
+          dateArr[1] = dateArr[0];
+          dateArr[0] = arr;
+
+          let dateCase = dateArr.join(" ");
+
+          date.push(dateCase);
+        });
+
+        setRecord({
+          confirmed: confirmed,
+          recovered: recovered,
+          death: death,
+          date: date,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  console.log(record);
+
+  function LineChart() {
+    const data = {
+      labels: record.date,
+      datasets: [
+        {
+          label: "Confirmed",
+          data: record.confirmed,
+          backgroundColor: "rgba(9, 132, 227,0.2)",
+          borderColor: "rgba(9, 132, 227,0.2)",
+          pointBorderColor: "rgba(9, 132, 227,0.2)",
+          pointBackgroundColor: "rgba(9, 132, 227,0.2)",
+        },
+        {
+          label: "Recovered",
+          data: record.recovered,
+          backgroundColor: "rgba(76, 209, 55,0.2)",
+          borderColor: "rgba(76, 209, 55,0.2)",
+          pointBorderColor: "rgba(76, 209, 55,0.2)",
+          pointBackgroundColor: "rgba(76, 209, 55,0.2)",
+        },
+        {
+          label: "Death",
+          data: record.death,
+          backgroundColor: "rgba(214, 48, 49,0.2)",
+          borderColor: "rgba(214, 48, 49,0.2)",
+          pointBorderColor: "rgba(214, 48, 49,0.2)",
+          pointBackgroundColor: "rgba(214, 48, 49,0.2)",
+        },
+      ],
+    };
+
+
+    return <Line data={data} />;
+  }
 
   const CASEAPI = "https://covid19.mathdro.id/api";
 
@@ -35,9 +144,10 @@ export default function Menu() {
   };
 
   return (
-    <div id="myBg" style={{ position: "relative", marginTop: "4rem"}}>
+    <div id="myBg" style={{ position: "relative", marginTop: "4rem" }}>
       <div>
-        <span className="world-cases"
+        <span
+          className="world-cases"
           style={{
             textAlign: "center",
             fontSize: 64,
@@ -60,9 +170,7 @@ export default function Menu() {
           <Col>
             <Card id="menu1">
               <CardBody>
-                <CardTitle style={{ fontWeight: 600 }}>
-                  Kasus Terkonfirmasi
-                </CardTitle>
+                <CardTitle style={{ fontWeight: 600 }}>Confirmed</CardTitle>
 
                 <CardText
                   style={{ color: "#4D6CFF", fontSize: 24, fontWeight: 600 }}
@@ -72,7 +180,7 @@ export default function Menu() {
                     displayType={"text"}
                     thousandSeparator={true}
                   />
-                  <span style={{ fontWeight: "normal" }}> Orang</span>
+                  <span style={{ fontWeight: "normal" }}> People</span>
                 </CardText>
               </CardBody>
             </Card>
@@ -81,9 +189,7 @@ export default function Menu() {
           <Col>
             <Card id="menu2">
               <CardBody>
-                <CardTitle style={{ fontWeight: 600 }}>
-                  Orang yang Sembuh
-                </CardTitle>
+                <CardTitle style={{ fontWeight: 600 }}>Recovered</CardTitle>
                 <CardText
                   style={{ color: "#67D3B3", fontSize: 24, fontWeight: 600 }}
                 >
@@ -92,7 +198,7 @@ export default function Menu() {
                     displayType={"text"}
                     thousandSeparator={true}
                   />
-                  <span style={{ fontWeight: "normal" }}> Orang</span>
+                  <span style={{ fontWeight: "normal" }}> People</span>
                 </CardText>
               </CardBody>
             </Card>
@@ -101,9 +207,7 @@ export default function Menu() {
           <Col>
             <Card id="menu3">
               <CardBody>
-                <CardTitle style={{ fontWeight: 600 }}>
-                  Orang yang Meninggal
-                </CardTitle>
+                <CardTitle style={{ fontWeight: 600 }}>Death</CardTitle>
                 <CardText
                   style={{ color: "#EF7943", fontSize: 24, fontWeight: 600 }}
                 >
@@ -112,14 +216,46 @@ export default function Menu() {
                     displayType={"text"}
                     thousandSeparator={true}
                   />
-                  <span style={{ fontWeight: "normal" }}> Orang</span>
+                  <span style={{ fontWeight: "normal" }}> People</span>
                 </CardText>
               </CardBody>
             </Card>
           </Col>
         </Row>
       </Fade>
-      <div className="footer"></div>
+      <div className="chart-cases"
+        style={{
+          width: "65%",
+          justifyContent: "center",
+          margin: "6rem auto 0 auto",
+        }}
+      >
+      <div>
+        <span
+          className="ina-cases"
+          style={{
+            textAlign: "center",
+            fontSize: 64,
+            textTransform: "uppercase",
+            fontWeight: 500,
+            color: "#95a5a6",
+            position: "absolute",
+            left: 0,
+            right: 0,
+            opacity: "30%",
+            fontFamily: "rubik",
+            marginTop: "-5rem"
+          }}
+        >
+          Indonesia Cases
+        </span>
+      </div>
+        <TabContent>
+          <TabPane>
+            <LineChart />
+          </TabPane>
+        </TabContent>
+      </div>
     </div>
   );
 }

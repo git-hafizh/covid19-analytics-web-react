@@ -1,9 +1,9 @@
-.footer{
-  height: 4rem;
-}
-
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
+
+    .ina-cases{
+      font-size: 24px;
+    }
 
     .row .col{
       margin: 1rem auto;
