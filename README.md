@@ -13,5 +13,9 @@ npm install
 npm start
 ```
 
+## Data Source
+
+**[COVID-19 API (mathdroid)](https://github.com/mathdroid/covid-19-api)**
+
 ## Preview
-![git](https://user-images.githubusercontent.com/63697314/90311022-1a841500-df21-11ea-97bb-50e6dee49bf1.png)
+![git](https://user-images.githubusercontent.com/63697314/96116064-1620ac00-0f12-11eb-88ee-8c8090ace29a.png)
