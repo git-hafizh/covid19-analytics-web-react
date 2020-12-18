@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import "./style.css";
 import {
   Row,
@@ -8,59 +7,33 @@ import {
   CardBody,
   CardTitle,
   CardText,
+  Form,
+  Input
 } from "reactstrap";
 import "../../Pages/style.css";
-import SearchCountry from "./SearchCountry";
 import NumberFormat from "react-number-format";
+import { useDispatch, useSelector } from "react-redux";
+import { getFetchCasesSelectedCountry, getFetchCountryName } from "../../redux/fetchDataAPI";
 
 export default function DataCharts() {
-  const [cases, setCases] = React.useState([
-    {
-      confirmed: 0,
-      recovered: 0,
-      death: 0,
-    },
-  ]);
- 
-  const [selected, setSelected] = React.useState("Indonesia");
-  const [country, setCountry] = React.useState([]);
+  const countryState = useSelector(state => state)
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
-    getCountryAPI();
     pickCountry();
-  }, [selected]);
 
-  const getCountryAPI = () => {
-    axios.get("https://covid19.mathdro.id/api/countries").then((result) => {
-      let datas = result.data.countries;
-      let name = [];
-      datas.forEach((record) => {
-        name.push(record.name);
-      });
-      setCountry(name);
-    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const pickCountry = (country, countryName) => {
+    dispatch(getFetchCasesSelectedCountry(country))
+    dispatch(getFetchCountryName(countryName))
   };
 
-  const pickCountry = () => {
-    let nationID = selected;
-    axios
-      .get(`https://covid19.mathdro.id/api/countries/${nationID}`)
-      .then((result) => {
-        let confirmed = result.data.confirmed.value;
-        let recovered = result.data.recovered.value;
-        let death = result.data.deaths.value;
+  function handleChange(event) {
+    const { value } = event.target;
 
-        setCases({
-          confirmed: confirmed,
-          recovered: recovered,
-          death: death,
-        });
-      });
-  };
-
-  function handleChange(value) {
-    setSelected(value);
-    pickCountry(selected);
+    pickCountry(value);
   }
 
   return (
@@ -69,33 +42,34 @@ export default function DataCharts() {
         <span className="country">
           Country Cases
         </span>
-        <div
-          style={{
-            width: "30%",
-            justifyContent: "center",
-            margin: "2rem auto",
-          }}
-        >
-          <SearchCountry
-            country={country}
-            selected={selected}
-            handleChange={(e) => handleChange(e)}
-          />
+        <div style={{ width: "30%", justifyContent: "center", margin: "2rem auto" }}>
+          <Form>
+            <Input
+              style={{ cursor: "pointer" }}
+              type="select"
+              name="selected"
+              onChange={handleChange}
+              value={countryState.country}
+            >
+              {countryState.countryName.map((item, index) => (
+                <option key={index} value={item}>
+                  {item}
+                </option>
+              ))}
+            </Input>
+          </Form>
         </div>
         <div style={{ marginBottom: "5rem" }}>
-          <Row className="cases" sm={5} style={{ justifyContent: "center" }}>
+          <Row className="country" sm={5} style={{ justifyContent: "center" }}>
             <Col>
               <Card id="menu1">
                 <CardBody>
                   <CardTitle style={{ fontWeight: 600 }}>
                     Confirmed
                   </CardTitle>
-
-                  <CardText
-                    style={{ color: "#4D6CFF", fontSize: 18, fontWeight: 600 }}
-                  >
+                  <CardText style={{ color: "#4D6CFF", fontSize: 18, fontWeight: 600 }}>
                     <NumberFormat
-                      value={cases.confirmed}
+                      value={countryState.countryConfirmed}
                       displayType={"text"}
                       thousandSeparator={true}
                     />
@@ -111,11 +85,9 @@ export default function DataCharts() {
                   <CardTitle style={{ fontWeight: 600 }}>
                     Recovered
                   </CardTitle>
-                  <CardText
-                    style={{ color: "#67D3B3", fontSize: 18, fontWeight: 600 }}
-                  >
+                  <CardText style={{ color: "#67D3B3", fontSize: 18, fontWeight: 600 }}>
                     <NumberFormat
-                      value={cases.recovered}
+                      value={countryState.countryRecovered}
                       displayType={"text"}
                       thousandSeparator={true}
                     />
@@ -131,11 +103,9 @@ export default function DataCharts() {
                   <CardTitle style={{ fontWeight: 600 }}>
                     Death
                   </CardTitle>
-                  <CardText
-                    style={{ color: "#EF7943", fontSize: 18, fontWeight: 600 }}
-                  >
+                  <CardText style={{ color: "#EF7943", fontSize: 18, fontWeight: 600 }}>
                     <NumberFormat
-                      value={cases.death}
+                      value={countryState.countryDeath}
                       displayType={"text"}
                       thousandSeparator={true}
                     />
