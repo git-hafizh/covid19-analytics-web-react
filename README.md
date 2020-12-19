@@ -1,6 +1,6 @@
 # Covid 19 Tracker Web
 
-**[Demo](http://git-hafizh.github.io/covid19-tracker-web-react/)**
+**[Demo](https://covid19-tracker-web.netlify.app/)**
 
 ## Install
 ```sh
