@@ -40,7 +40,7 @@ export default function WorldCase() {
       labels: globalData.graphDate,
       datasets: [
         {
-          label: "Confirmed",
+          label: "Terkonfirmasi",
           data: globalData.graphConfirmed,
           backgroundColor: "rgba(9, 132, 227,0.2)",
           borderColor: "rgba(9, 132, 227,0.2)",
@@ -48,7 +48,7 @@ export default function WorldCase() {
           pointBackgroundColor: "rgba(9, 132, 227,0.2)",
         },
         {
-          label: "Recovered",
+          label: "Sembuh",
           data: globalData.graphRecovered,
           backgroundColor: "rgba(76, 209, 55,0.2)",
           borderColor: "rgba(76, 209, 55,0.2)",
@@ -56,7 +56,7 @@ export default function WorldCase() {
           pointBackgroundColor: "rgba(76, 209, 55,0.2)",
         },
         {
-          label: "Death",
+          label: "Meninggal",
           data: globalData.graphDeath,
           backgroundColor: "rgba(214, 48, 49,0.2)",
           borderColor: "rgba(214, 48, 49,0.2)",
@@ -77,7 +77,7 @@ export default function WorldCase() {
     <div id="myBg" style={{ position: "relative", marginTop: "4rem" }}>
       <div className="world">
         <span className="world-cases">
-          World Cases
+          Kasus Dunia
         </span>
       </div>
       <Fade bottom>
@@ -85,7 +85,7 @@ export default function WorldCase() {
           <Col>
             <Card id="menu1">
               <CardBody>
-                <CardTitle style={{ fontWeight: 600 }}>Confirmed</CardTitle>
+                <CardTitle style={{ fontWeight: 600 }}>Terkonfirmasi</CardTitle>
 
                 <CardText style={{ color: "#4D6CFF", fontSize: 24, fontWeight: 600 }}>
                   <NumberFormat
@@ -93,7 +93,7 @@ export default function WorldCase() {
                     displayType={"text"}
                     thousandSeparator={true}
                   />
-                  <span style={{ fontWeight: "normal" }}> People</span>
+                  <span style={{ fontWeight: "normal" }}> Orang</span>
                 </CardText>
               </CardBody>
             </Card>
@@ -102,14 +102,14 @@ export default function WorldCase() {
           <Col>
             <Card id="menu2">
               <CardBody>
-                <CardTitle style={{ fontWeight: 600 }}>Recovered</CardTitle>
+                <CardTitle style={{ fontWeight: 600 }}>Sembuh</CardTitle>
                 <CardText style={{ color: "#67D3B3", fontSize: 24, fontWeight: 600 }}>
                   <NumberFormat
                     value={globalData.casesRecovered}
                     displayType={"text"}
                     thousandSeparator={true}
                   />
-                  <span style={{ fontWeight: "normal" }}> People</span>
+                  <span style={{ fontWeight: "normal" }}> Orang</span>
                 </CardText>
               </CardBody>
             </Card>
@@ -118,14 +118,14 @@ export default function WorldCase() {
           <Col>
             <Card id="menu3">
               <CardBody>
-                <CardTitle style={{ fontWeight: 600 }}>Death</CardTitle>
+                <CardTitle style={{ fontWeight: 600 }}>Meninggal</CardTitle>
                 <CardText style={{ color: "#EF7943", fontSize: 24, fontWeight: 600 }}>
                   <NumberFormat
                     value={globalData.casesDeath}
                     displayType={"text"}
                     thousandSeparator={true}
                   />
-                  <span style={{ fontWeight: "normal" }}> People</span>
+                  <span style={{ fontWeight: "normal" }}> Orang</span>
                 </CardText>
               </CardBody>
             </Card>
@@ -134,7 +134,7 @@ export default function WorldCase() {
       </Fade>
       <div>
         <span className="ina-cases">
-          Indonesia Cases
+          Kasus Indonesia
         </span>
       </div>
       <div

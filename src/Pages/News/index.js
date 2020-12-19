@@ -60,7 +60,7 @@ export default function Konten() {
   return (
     <div style={{position: "relative", marginTop: "-2rem"}}>
     <div>
-      <span className="h-news">News</span>
+      <span className="h-news">Berita</span>
     </div>
     <Slider {...settings} style={{marginBottom: "1rem"}}>
       {newsState.news.map((item, index) => (

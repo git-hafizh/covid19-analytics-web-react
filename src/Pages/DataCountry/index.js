@@ -40,7 +40,7 @@ export default function DataCountry() {
     <>
       <div className="data" style={{ position: "relative", top: "-4rem" }}>
         <span className="country">
-          Country Cases
+          Kasus Tiap Negara
         </span>
         <div style={{ width: "30%", justifyContent: "center", margin: "2rem auto" }}>
           <Form>
@@ -65,7 +65,7 @@ export default function DataCountry() {
               <Card id="menu1">
                 <CardBody>
                   <CardTitle style={{ fontWeight: 600 }}>
-                    Confirmed
+                    Terkonfirmasi
                   </CardTitle>
                   <CardText style={{ color: "#4D6CFF", fontSize: 18, fontWeight: 600 }}>
                     <NumberFormat
@@ -73,7 +73,7 @@ export default function DataCountry() {
                       displayType={"text"}
                       thousandSeparator={true}
                     />
-                    <span style={{ fontWeight: "normal" }}> People</span>
+                    <span style={{ fontWeight: "normal" }}> Orang</span>
                   </CardText>
                 </CardBody>
               </Card>
@@ -83,7 +83,7 @@ export default function DataCountry() {
               <Card id="menu2">
                 <CardBody>
                   <CardTitle style={{ fontWeight: 600 }}>
-                    Recovered
+                    Sembuh
                   </CardTitle>
                   <CardText style={{ color: "#67D3B3", fontSize: 18, fontWeight: 600 }}>
                     <NumberFormat
@@ -91,7 +91,7 @@ export default function DataCountry() {
                       displayType={"text"}
                       thousandSeparator={true}
                     />
-                    <span style={{ fontWeight: "normal" }}> People</span>
+                    <span style={{ fontWeight: "normal" }}> Orang</span>
                   </CardText>
                 </CardBody>
               </Card>
@@ -101,7 +101,7 @@ export default function DataCountry() {
               <Card id="menu3">
                 <CardBody>
                   <CardTitle style={{ fontWeight: 600 }}>
-                    Death
+                    Meninggal
                   </CardTitle>
                   <CardText style={{ color: "#EF7943", fontSize: 18, fontWeight: 600 }}>
                     <NumberFormat
@@ -109,7 +109,7 @@ export default function DataCountry() {
                       displayType={"text"}
                       thousandSeparator={true}
                     />
-                    <span style={{ fontWeight: "normal" }}> People</span>
+                    <span style={{ fontWeight: "normal" }}> Orang</span>
                   </CardText>
                 </CardBody>
               </Card>

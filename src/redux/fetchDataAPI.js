@@ -124,7 +124,7 @@ export const getFetchCasesSelectedCountry = (country) => async (dispatch) => {
 export const getNewsData = () => (dispatch) => {
   const thisApiKey = "8dd49b1983464a37aa7fac7c1111f95a";
 
-  axios.get(`https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=covid&apiKey=${thisApiKey}`)
+  axios.get(`https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/top-headlines?country=id&category=health&apiKey=${thisApiKey}`)
     .then((res) => {
       const news = res.data.articles
 
