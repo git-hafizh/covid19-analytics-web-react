@@ -17,7 +17,7 @@ import { Line } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 import { getFetchCasesData, getFetchGraphData } from "../../redux/fetchDataAPI";
 
-export default function Menu() {
+export default function WorldCase() {
   const globalData = useSelector(state => state)
   const dispatch = useDispatch();
 

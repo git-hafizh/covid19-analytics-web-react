@@ -1,27 +1,25 @@
 import React from "react";
 import { CardTitle, CardImg, Card } from "reactstrap";
 import '../../Pages/style.css';
-import axios from 'axios';
 import Slider from "react-slick";
 import "./style.css";
 import './css/slick.min.css';
 import './css/slick.theme.css';
+import { useDispatch, useSelector } from "react-redux";
+import { getNewsData } from "../../redux/fetchDataAPI";
 
 
 export default function Konten() {
-  const [news, setNews] = React.useState([]);
+  const newsState = useSelector(state => state);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     getNewsAPI();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
-  const thisApiKey = "8dd49b1983464a37aa7fac7c1111f95a";
-
-  const getNewsAPI = () => {
-    axios.get(`https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=covid&apiKey=${thisApiKey}`)
-    .then((res) => {
-      setNews(res.data.articles)
-    })
+  const getNewsAPI = (news) => {
+    dispatch(getNewsData(news))
   }
 
   var settings = {
@@ -65,7 +63,7 @@ export default function Konten() {
       <span className="h-news">News</span>
     </div>
     <Slider {...settings} style={{marginBottom: "1rem"}}>
-      {news.map((item, index) => (
+      {newsState.news.map((item, index) => (
         <div key={index}>
           <Card>
             <CardImg style={{width: "100", height:"300", textAlign: "center"}} src={item.urlToImage}/>

@@ -1,12 +1,8 @@
 import React from 'react';
 import './App.css';
-import Homepage from './Pages/Homepage';
-import Navbars from './Pages/Navbars';
-import Kasus from './Pages/Kasus';
-import News from './Pages/News';
-import DataCharts from './Pages/DataCharts';
 import { Provider } from 'react-redux';
 import { store } from './redux';
+import { DataCountry, Homepage, Navbars, News, WorldCase } from './Pages';
 
 function App() {
   return (
@@ -14,9 +10,9 @@ function App() {
       <Provider store={store}>
         <Navbars/>
         <Homepage/>
-        <DataCharts/>
+        <DataCountry/>
         <News/>
-        <Kasus/>
+        <WorldCase/>
       </Provider>
     </div>
   );

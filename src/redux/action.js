@@ -2,6 +2,7 @@ export const GET_DATA = "GET_DATA"
 export const GET_COUNTRY_NAME = "GET_COUNTRY_NAME"
 export const GET_SELECTED_COUNTRY = "GET_SELECTED_COUNTRY"
 export const GET_PICK_COUNTRY = "GET_PICK_COUNTRY"
+export const GET_NEWS_DATA = "GET_NEWS_DATA"
 
 export const getGraphData = (confirmed, recovered, death, date) => {
   return {
@@ -51,3 +52,9 @@ export const getSelectedCountry = (country) => {
   }
 }
 
+export const getNewsData = (news) => {
+  return{
+    type: GET_NEWS_DATA,
+    payload: news
+  }
+}

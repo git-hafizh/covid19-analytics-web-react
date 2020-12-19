@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_COUNTRY_NAME, GET_DATA, GET_PICK_COUNTRY, GET_SELECTED_COUNTRY } from './action';
+import { GET_COUNTRY_NAME, GET_DATA, GET_NEWS_DATA, GET_PICK_COUNTRY, GET_SELECTED_COUNTRY } from './action';
 
 export const getFetchGraphData = () => (dispatch) => {
   return (
@@ -121,6 +121,19 @@ export const getFetchCasesSelectedCountry = (country) => async (dispatch) => {
 
 }
 
-export const getSelectedCountry = () => (dispatch) => {
+export const getNewsData = () => (dispatch) => {
+  const thisApiKey = "8dd49b1983464a37aa7fac7c1111f95a";
 
+  axios.get(`https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=covid&apiKey=${thisApiKey}`)
+    .then((res) => {
+      const news = res.data.articles
+
+      dispatch({
+        type: GET_NEWS_DATA,
+        payload: news
+      })
+    })
+    .catch((err) => {
+      console.log("error message ", err);
+    })
 }

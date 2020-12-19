@@ -15,7 +15,7 @@ import NumberFormat from "react-number-format";
 import { useDispatch, useSelector } from "react-redux";
 import { getFetchCasesSelectedCountry, getFetchCountryName } from "../../redux/fetchDataAPI";
 
-export default function DataCharts() {
+export default function DataCountry() {
   const countryState = useSelector(state => state)
   const dispatch = useDispatch();
 

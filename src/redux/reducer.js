@@ -1,4 +1,4 @@
-import { GET_DATA, GET_COUNTRY_NAME, GET_SELECTED_COUNTRY, GET_PICK_COUNTRY } from "./action";
+import { GET_DATA, GET_COUNTRY_NAME, GET_SELECTED_COUNTRY, GET_PICK_COUNTRY, GET_NEWS_DATA } from "./action";
 
 const initialState = {
   casesConfirmed: 0,
@@ -13,7 +13,8 @@ const initialState = {
   countryName: [],
   countryConfirmed: 0,
   countryRecovered: 0,
-  countryDeath: 0
+  countryDeath: 0,
+  news: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -51,6 +52,13 @@ const reducer = (state = initialState, action) => {
       return{
         ...state,
         country: action.payload
+      }
+    }
+
+    case GET_NEWS_DATA: {
+      return{
+        ...state,
+        news: action.payload
       }
     }
 
