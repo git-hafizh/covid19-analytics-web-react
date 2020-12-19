@@ -1,7 +1,7 @@
 {
   "name": "covid19-web",
   "version": "0.1.0",
-  "homepage": "https://git-hafizh.github.io/covid19-tracker-web-react",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
