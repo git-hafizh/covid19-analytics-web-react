@@ -1,6 +1,6 @@
 # Covid 19 Tracker Web
 
-**[Demo](http://git-hafizh.github.io/covid19-tracker-web-react/)**
+**[Demo](https://covid19-tracker-web.netlify.app/)**
 
 ## Install
 ```sh
@@ -18,4 +18,5 @@ npm start
 **[COVID-19 API (mathdroid)](https://github.com/mathdroid/covid-19-api)**
 
 ## Preview
-![git](https://user-images.githubusercontent.com/63697314/96116064-1620ac00-0f12-11eb-88ee-8c8090ace29a.png)
+![covid-tracker](https://user-images.githubusercontent.com/63697314/102687517-362a5f80-4222-11eb-9dac-7f8ccc7a50df.png)
+
