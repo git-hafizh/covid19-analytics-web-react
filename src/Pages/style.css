@@ -44,9 +44,44 @@ body {
     visibility: hidden;
 }
 
+/* Responsive */
 
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
+@media (max-width: 1024px) {
+    h1.display-5{
+        font-size: 1.5rem;
+    }
+
+    p.lead{
+        font-size: 1rem;
+    }
+
+    p.caption{
+        font-size: 0.8rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    h1.display-5 {
+        font-size: 1.2rem;
+    }
+
+    p.lead{
+        font-size: 0.9rem;
+    }
+
+    #homepage {
+        margin: 0px 10px;
+        font-size: 12px;
+    }
+
+    #navbars {
+        margin: 0px 25px;
+    }
+}
+
+@media (max-width: 575px) {
 
     h1.display-5 {
         text-align: center;
@@ -69,7 +104,7 @@ body {
     }
 
     .header-bg {
-        visibility: hidden;
+        display: none;
     }
 
     .header-bg-toggle {

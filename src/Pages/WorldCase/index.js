@@ -81,19 +81,20 @@ export default function WorldCase() {
         </span>
       </div>
       <Fade bottom>
-        <Row sm={5} style={{ justifyContent: "center" }}>
+        <Row className="country" sm={5} style={{ justifyContent: "center" }}>
           <Col>
             <Card id="menu1">
               <CardBody>
                 <CardTitle style={{ fontWeight: 600 }}>Terkonfirmasi</CardTitle>
-
                 <CardText style={{ color: "#4D6CFF", fontSize: 24, fontWeight: 600 }}>
+                <div className="jml-korban">
                   <NumberFormat
                     value={globalData.casesConfirmed}
                     displayType={"text"}
                     thousandSeparator={true}
                   />
                   <span style={{ fontWeight: "normal" }}> Orang</span>
+                </div>
                 </CardText>
               </CardBody>
             </Card>
@@ -104,12 +105,14 @@ export default function WorldCase() {
               <CardBody>
                 <CardTitle style={{ fontWeight: 600 }}>Sembuh</CardTitle>
                 <CardText style={{ color: "#67D3B3", fontSize: 24, fontWeight: 600 }}>
+                <div className="jml-korban">
                   <NumberFormat
                     value={globalData.casesRecovered}
                     displayType={"text"}
                     thousandSeparator={true}
                   />
                   <span style={{ fontWeight: "normal" }}> Orang</span>
+                </div>
                 </CardText>
               </CardBody>
             </Card>
@@ -120,12 +123,14 @@ export default function WorldCase() {
               <CardBody>
                 <CardTitle style={{ fontWeight: 600 }}>Meninggal</CardTitle>
                 <CardText style={{ color: "#EF7943", fontSize: 24, fontWeight: 600 }}>
+                <div className="jml-korban">
                   <NumberFormat
                     value={globalData.casesDeath}
                     displayType={"text"}
                     thousandSeparator={true}
                   />
                   <span style={{ fontWeight: "normal" }}> Orang</span>
+                </div>
                 </CardText>
               </CardBody>
             </Card>

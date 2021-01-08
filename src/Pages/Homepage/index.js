@@ -24,7 +24,7 @@ export default function Homepage() {
               paru-paru yang berat, hingga kematian.
             </p>
             <hr className="my-2" />
-            <p>
+            <p className="caption">
               Severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) yang
               lebih dikenal dengan nama virus Corona adalah jenis baru dari
               coronavirus yang menular ke manusia.

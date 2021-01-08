@@ -34,28 +34,16 @@ canvas{
   height: 1rem;
 }
 
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
+/* Responsive */
 
-  canvas{
-    height: 260px;
-    padding: 0.5rem;
-  }
+@media (max-width: 1024px) {
 
-  span.ina-cases {
-    font-size: 36px;
-    margin-top: 1.5rem;
-  }
+}
 
-  span.world-cases {
-    font-size: 36px;
-  }
+@media (max-width: 768px) {
 
-  .row .col {
-    margin: 1rem auto;
-    display: block;
-    padding: 0 2rem;
-    text-align: center;
-  }
+}
+
+@media (max-width: 575px) {
 
 }

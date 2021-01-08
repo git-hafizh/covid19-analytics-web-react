@@ -12,23 +12,36 @@ span.country {
   top: 20px;
 }
 
-@media only screen and (max-width: 768px) {
+/* Responsive */
 
-  /* For mobile phones: */
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 768px) {
 
   span.country {
-    font-size: 36px;
-    top: 50px;
+    font-size: 32px;
+    top: 40px;
   }
 
+  .jml-korban{
+    font-size: 18px;
+  }
+}
 
-  .row.cases {
-    display: block;
-    padding: 2rem;
-    text-align: center;
+@media (max-width: 575px) {
+
+  span.country {
+    font-size: 32px;
+    top: 40px;
   }
 
-  .row .col {
+  .row.country {
     margin: 1rem auto;
+  }
+
+  .jml-korban{
+    font-size: 15px;
   }
 }

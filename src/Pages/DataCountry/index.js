@@ -68,12 +68,14 @@ export default function DataCountry() {
                     Terkonfirmasi
                   </CardTitle>
                   <CardText style={{ color: "#4D6CFF", fontSize: 18, fontWeight: 600 }}>
-                    <NumberFormat
-                      value={countryState.countryConfirmed}
-                      displayType={"text"}
-                      thousandSeparator={true}
-                    />
-                    <span style={{ fontWeight: "normal" }}> Orang</span>
+                    <div className="jml-korban">
+                      <NumberFormat
+                        value={countryState.countryConfirmed}
+                        displayType={"text"}
+                        thousandSeparator={true}
+                      />
+                      <span style={{ fontWeight: "normal" }}> Orang</span>
+                    </div>
                   </CardText>
                 </CardBody>
               </Card>
@@ -86,12 +88,14 @@ export default function DataCountry() {
                     Sembuh
                   </CardTitle>
                   <CardText style={{ color: "#67D3B3", fontSize: 18, fontWeight: 600 }}>
-                    <NumberFormat
-                      value={countryState.countryRecovered}
-                      displayType={"text"}
-                      thousandSeparator={true}
-                    />
-                    <span style={{ fontWeight: "normal" }}> Orang</span>
+                    <div className="jml-korban">
+                      <NumberFormat
+                        value={countryState.countryRecovered}
+                        displayType={"text"}
+                        thousandSeparator={true}
+                      />
+                      <span style={{ fontWeight: "normal" }}> Orang</span>
+                    </div>
                   </CardText>
                 </CardBody>
               </Card>
@@ -104,12 +108,14 @@ export default function DataCountry() {
                     Meninggal
                   </CardTitle>
                   <CardText style={{ color: "#EF7943", fontSize: 18, fontWeight: 600 }}>
-                    <NumberFormat
-                      value={countryState.countryDeath}
-                      displayType={"text"}
-                      thousandSeparator={true}
-                    />
-                    <span style={{ fontWeight: "normal" }}> Orang</span>
+                    <div className="jml-korban">
+                      <NumberFormat
+                        value={countryState.countryDeath}
+                        displayType={"text"}
+                        thousandSeparator={true}
+                      />
+                      <span style={{ fontWeight: "normal" }}> Orang</span>
+                    </div>
                   </CardText>
                 </CardBody>
               </Card>
